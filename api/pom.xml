@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright © 2022 JINSPIRED B.V.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>humainary-observers-parent</artifactId>
+    <groupId>io.humainary.observers</groupId>
+    <version>${revision}</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>humainary-observers-api</artifactId>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>io.humainary.spi</groupId>
+      <artifactId>humainary-spi</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+  </dependencies>
+
+
+</project>

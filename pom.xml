@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.humainary.observers</groupId>
+  <artifactId>humainary-observers-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>${revision}</version>
+
+  <parent>
+    <groupId>io.humainary</groupId>
+    <artifactId>humainary-modules-api-parent</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <properties>
+    <revision>1.0-alpha9-SNAPSHOT</revision>
+  </properties>
+
+  <modules>
+    <module>api</module>
+    <module>testkit</module>
+  </modules>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>io.humainary.substrates</groupId>
+      <artifactId>humainary-substrates-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <profiles>
+
+    <profile>
+      <id>perfkit</id>
+
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+
+      <modules>
+        <module>perfkit</module>
+      </modules>
+
+      <properties>
+        <maven.test.skip>false</maven.test.skip>
+      </properties>
+
+      <dependencies>
+
+        <dependency>
+          <groupId>io.substrates</groupId>
+          <artifactId>substrates-spi-alpha</artifactId>
+          <version>${project.version}</version>
+          <scope>runtime</scope>
+          <optional>true</optional>
+        </dependency>
+
+        <dependency>
+          <groupId>io.inspectis.observers</groupId>
+          <artifactId>inspectis-observers-spi-alpha</artifactId>
+          <version>${project.version}</version>
+          <scope>runtime</scope>
+          <optional>true</optional>
+        </dependency>
+
+      </dependencies>
+
+    </profile>
+
+    <profile>
+      <id>github</id>
+
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+
+      <distributionManagement>
+        <repository>
+          <id>github</id>
+          <name>GitHub Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/humainary-io/humainary-observers-java</url>
+        </repository>
+      </distributionManagement>
+
+    </profile>
+
+    <profile>
+      <id>testkit</id>
+
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+
+      <properties>
+        <maven.test.skip>false</maven.test.skip>
+      </properties>
+
+      <dependencies>
+
+        <dependency>
+          <groupId>io.substrates</groupId>
+          <artifactId>substrates-spi-alpha</artifactId>
+          <version>${project.version}</version>
+          <scope>runtime</scope>
+          <optional>true</optional>
+        </dependency>
+
+        <dependency>
+          <groupId>io.inspectis.observers</groupId>
+          <artifactId>inspectis-observers-spi-alpha</artifactId>
+          <version>${project.version}</version>
+          <scope>runtime</scope>
+          <optional>true</optional>
+        </dependency>
+
+        <dependency>
+          <groupId>io.calculis.counters</groupId>
+          <artifactId>calculis-counters-spi-alpha</artifactId>
+          <version>${project.version}</version>
+          <scope>runtime</scope>
+          <optional>true</optional>
+        </dependency>
+
+      </dependencies>
+
+    </profile>
+
+  </profiles>
+
+</project>
